@@ -1,6 +1,6 @@
 module SeraphAuth
 	require "seraph_auth/version"
-	
+
 	def self.url
 		"http://seraph.defensoria.to.gov.br/"	
 	end
@@ -48,13 +48,15 @@ module SeraphAuth
 
 	def self.create_usuario(login,cpf,email,nome=nil,matricula=nil)
 		senha = SecureRandom.urlsafe_base64(nil, false)
-		user = ENV['seraph_table'].constantize.new
-		user.send(ENV['seraph_column_email']) = email
-		user.send(ENV['seraph_column_name']) = nome
-		user.send(ENV['seraph_column_cpf']) = cpf
-		user.send(ENV['seraph_column_usermame']) = login
-		user.send(ENV['seraph_column_password']) = senha
-		user.send(ENV['seraph_column_confirmation']) = senha
+		user_params = {
+			:"#{ENV['seraph_column_email']}"=> email,
+			:"#{ENV['seraph_column_name']}"=> nome,
+			:"#{ENV['seraph_column_cpf']}"=> cpf,
+			:"#{ENV['seraph_column_username']}"=> username,
+			:"#{ENV['seraph_column_password']}"=> senha,
+			:"#{ENV['seraph_column_confirmation']}"=> senha,
+		}
+		user = ENV['seraph_table'].constantize.new( user_params )
 		user.save
 		return user
 	end
