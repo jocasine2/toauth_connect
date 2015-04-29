@@ -65,7 +65,7 @@ module SeraphAuth
 		"#{url}auth/logout/"
 	end
 
-	def self.login
+	def self.auth_url
 		"#{url}/auth/login/?next=/auth/oauth2/authorize/skip/?client_id=#{ENV['seraph_client']}&response_type=code"
 	end
 end
