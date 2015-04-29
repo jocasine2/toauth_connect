@@ -1,4 +1,6 @@
 # coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'seraph_auth/version'
 
 Gem::Specification.new do |spec|
@@ -10,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "gitlab.defensoria.to.gov.br"
   spec.license       = "MIT"
 
-  spec.files         = ["lib/seraph_auth.rb"] 
+  spec.files         = ["seraph_auth.rb"] 
 
   spec.add_dependency 'rest-client'
 end
