@@ -60,4 +60,12 @@ module SeraphAuth
 		user.save
 		return user
 	end
+
+	def self.logout
+		"#{url}auth/logout/"
+	end
+
+	def self.login
+		"#{url}/auth/login/?next=/auth/oauth2/authorize/skip/?client_id=#{ENV['seraph_client']}&response_type=code"
+	end
 end
