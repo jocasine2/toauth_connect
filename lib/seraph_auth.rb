@@ -1,5 +1,6 @@
-class SeraphAuth < ActiveRecord::Base
+module SeraphAuth
 	require "seraph_auth/version"
+	
 	def self.url
 		"http://seraph.defensoria.to.gov.br/"	
 	end
