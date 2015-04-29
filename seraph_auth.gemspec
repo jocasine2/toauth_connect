@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "SERAPH Auth"
-  spec.version       = "1.0"
+  spec.version       = '0.0.0'
   spec.authors       = ["Lucas Ferreira"]
   spec.email         = ["lucas.ferreira@outlook.com"]
   spec.summary       = 'OAuth com SERAPH'
