@@ -52,7 +52,7 @@ module SeraphAuth
 			:"#{ENV['seraph_column_email']}"=> email,
 			:"#{ENV['seraph_column_name']}"=> nome,
 			:"#{ENV['seraph_column_cpf']}"=> cpf,
-			:"#{ENV['seraph_column_username']}"=> username,
+			:"#{ENV['seraph_column_username']}"=> login,
 			:"#{ENV['seraph_column_password']}"=> senha,
 			:"#{ENV['seraph_column_confirmation']}"=> senha,
 		}
