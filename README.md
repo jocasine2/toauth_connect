@@ -22,16 +22,32 @@ Ou manualmente:
 ## Configurando
 
 configure as seguintes variáveis:
+	#Client Seraph
+	ENV['seraph_client'] = 'any client' 
 
-	ENV['seraph_client'] = 'any client' #Client Seraph
-    ENV['seraph_secret'] = 'any secret' #Secret Seraph
-    ENV['seraph_table'] = "User" #tabela onde estão guardados os usuários
-    ENV['seraph_column_name'] = "name" #coluna onde está guardado o nome do usuário
-    ENV['seraph_column_cpf'] = "cpf" #coluna onde está guardado o cpf do usuário
-    ENV['seraph_column_email'] = "email" #coluna onde está guardado o email do usuário
-    ENV['seraph_column_username'] = "username" #coluna onde está guardado o usuario do usuário
-    ENV['seraph_column_password'] = "password"#coluna onde está guardada a senha do usuário
-    ENV['seraph_column_confirmation'] = "password_confirmation"#coluna onde está guardada o confirmação de senha do usuário
+	#Secret Seraph
+    ENV['seraph_secret'] = 'any secret'
+
+	#tabela onde estão guardados os usuários
+    ENV['seraph_table'] = "User"
+
+    #coluna onde está guardado o nome do usuário
+    ENV['seraph_column_name'] = "name"
+
+    #coluna onde está guardado o cpf do usuário
+    ENV['seraph_column_cpf'] = "cpf" 
+
+    #coluna onde está guardado o email do usuário
+    ENV['seraph_column_email'] = "email" 
+
+    #coluna onde está guardado o usuario do usuário
+    ENV['seraph_column_username'] = "username" 
+
+    #coluna onde está guardada a senha do usuário
+    ENV['seraph_column_password'] = "password"
+
+    #coluna onde está guardada o confirmação de senha do usuário
+    ENV['seraph_column_confirmation'] = "password_confirmation"
 
 ## Exemplo com Devise
 
