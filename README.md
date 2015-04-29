@@ -22,6 +22,7 @@ Ou manualmente:
 ## Configurando
 
 configure as seguintes variáveis:
+
 	#Client Seraph
 	ENV['seraph_client'] = 'any client' 
 
@@ -54,6 +55,7 @@ configure as seguintes variáveis:
 ### Redirecionando Usuário para Login
 
 em config/routes.rb
+
 	Rails.application.routes.draw do
   		get "/users/sign_in" => "api_auth#redirect"
 
