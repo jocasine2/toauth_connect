@@ -54,11 +54,14 @@ configure as seguintes variáveis:
 ### Redirecionando Usuário para Login
 
 em config/routes.rb
+	Rails.application.routes.draw do
+  		get "/users/sign_in" => "api_auth#redirect"
 
-	unauthenticated :user do
-	    devise_scope :user do
-	      get "/" => "api_auth#redirect"
-	    end
+		unauthenticated :user do
+		    devise_scope :user do
+		      get "/" => "api_auth#redirect"
+		    end
+		end
 	end
 
 em controller:
