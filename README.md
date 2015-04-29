@@ -1,31 +1,76 @@
-# AthenasApiClient
+# SeraphAuth
 
-TODO: Write a gem description
+Gem de autenticação OAuth com seraph.defensoria.to.gov.br
 
-## Installation
+## Instalação
 
-Add this line to your application's Gemfile:
+Add em Gemfile:
 
 ```ruby
+gem 'rest-client'
 gem 'seraph_auth'
 ```
 
-And then execute:
+Execute:
 
-    $ bundle
+    $ bundle install
 
-Or install it yourself as:
+Ou manualmente:
 
     $ gem install seraph_auth
 
-## Usage
+## Configurando
 
-TODO: Write usage instructions here
+configure as seguintes variáveis:
 
-## Contributing
+	ENV['seraph_client'] = 'any client' #Client Seraph
+    ENV['seraph_secret'] = 'any secret' #Secret Seraph
+    ENV['seraph_table'] = "User" #tabela onde estão guardados os usuários
+    ENV['seraph_column_name'] = "name" #coluna onde está guardado o nome do usuário
+    ENV['seraph_column_cpf'] = "cpf" #coluna onde está guardado o cpf do usuário
+    ENV['seraph_column_email'] = "email" #coluna onde está guardado o email do usuário
+    ENV['seraph_column_username'] = "username" #coluna onde está guardado o usuario do usuário
+    ENV['seraph_column_password'] = "password"#coluna onde está guardada a senha do usuário
+    ENV['seraph_column_confirmation'] = "password_confirmation"#coluna onde está guardada o confirmação de senha do usuário
 
-1. Fork it ( https://github.com/[my-github-username]/seraph_auth/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+## Exemplo com Devise
+
+### Redirecionando Usuário para Login
+
+em config/routes.rb
+
+	unauthenticated :user do
+	    devise_scope :user do
+	      get "/" => "api_auth#redirect"
+	    end
+	end
+
+em controller:
+
+	def redirect
+		redirect_to SeraphAuth.auth_url
+	end
+
+### Callback
+
+em controller:
+	
+	def entrar
+		@user = SeraphAuth.login(params[:code])
+		if @user[:error]
+			flash[:alert] = @user[:error]
+			redirect_to your_url 
+		else
+			sign_in_and_redirect @user, :event => :authentication
+		end
+	end
+
+### Logout
+	
+em aplication_controller.rb
+	def after_sign_out_path_for(resource_or_scope)
+	    SeraphAuth.logout
+	end
+
+
+
