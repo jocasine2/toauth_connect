@@ -10,6 +10,6 @@ class ToauthConnectGenerator < Rails::Generators::Base
   end
 
   def copy_controller
-    template "toauth_controller.rb", "app/controllers/toauth_contorller.rb"
+    template "toauth_controller.rb", "app/controllers/toauth_controller.rb"
   end
 end
