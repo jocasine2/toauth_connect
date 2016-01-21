@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "git.seplan.to.gov.br"
   spec.license       = "MIT"
 
-  spec.files         =  `git ls-files`.split("n")
+  spec.files         = `git ls-files`.split("\n")
   spec.require_path  = 'lib'
 
   spec.add_dependency 'rest-client'
