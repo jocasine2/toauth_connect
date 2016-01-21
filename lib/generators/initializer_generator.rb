@@ -1,4 +1,3 @@
-require 'rails/generators/base'
 module Devise
   module Generators
     class InstallGenerator < Rails::Generators::Base
