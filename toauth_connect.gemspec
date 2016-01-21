@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Lucas Ferreira"]
   spec.email         = ["lucas.ferreira@outlook.com"]
   spec.summary       = 'OAuth com Toauth'
-  spec.homepage      = "git.seplan.to.gov.br"
+  spec.homepage      = "http://git.seplan.to.gov.br"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split("\n")
