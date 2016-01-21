@@ -10,7 +10,7 @@ module ToauthConnect
 	define_setting :url_redirect_dev
 	define_setting :user_table
 	define_setting :column_email
-	define_setting :colum_token
+	define_setting :column_token
 	define_setting :column_name
 	define_setting :column_cpf
 	define_setting :column_password
