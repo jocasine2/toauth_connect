@@ -1,4 +1,4 @@
-class ToauthConnect < ApplicationController
+class ToauthConnect::ToauthController < ApplicationController
 	def entrar
 		@user = ToauthConnect.login(params[:code])
 		begin
