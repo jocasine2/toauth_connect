@@ -1,5 +1,5 @@
 module ToauthConnect
-	require "seraph_auth/version"
+	require "toauth_connect/version"
 	require 'helpers/configuration'
 	extend Configuration
 
