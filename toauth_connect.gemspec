@@ -13,8 +13,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         =  `git ls-files`.split("n")
-  spec.executables = `git ls-files`.split("n").map{|f| f =~ /^bin/(.*)/ ? $1 : nil}.compact
-  spec.require_path = 'lib'
+  spec.require_path  = 'lib'
 
   spec.add_dependency 'rest-client'
 end
