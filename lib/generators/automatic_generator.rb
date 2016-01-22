@@ -1,5 +1,5 @@
 require 'rails/generators'
-module Toauth
+module ToauthConnect
   module Generators
     class AutomaticGenerator < Rails::Generators::Base
       def add_gens
