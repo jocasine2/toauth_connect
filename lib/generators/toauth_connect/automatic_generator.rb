@@ -11,6 +11,9 @@ module ToauthConnect
         gem 'devise'
         gem 'oauth2'
         gem 'rest-client'
+        Bundler.with_clean_env do
+          run "bundle install"
+        end
       end
       
       def create_user_table
@@ -33,7 +36,7 @@ module ToauthConnect
         generate "toauth_connect:install"
       end
 
-      def add_user_method
+      def add_user_methodrails
         inject_into_class 'app/model/user.rb', "User", <<-'RUBY'
           def toauth_fast
             ToauthConnect.fastdata(self)
