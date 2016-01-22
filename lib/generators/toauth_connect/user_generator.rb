@@ -1,7 +1,7 @@
 require 'rails/generators'
 module ToauthConnect
 	module Generators
-		class AutomaticGenerator < Rails::Generators::Base
+		class UserGenerator < Rails::Generators::Base
 			source_root File.expand_path("../template", __FILE__)
 
 			desc "Creates a TouthConnect initializer and copy locale files to your application."

@@ -25,7 +25,7 @@ module ToauthConnect
       end
 
       def generate_toauth_connect
-        generate "toauth_connect:install"
+        generate "toauth_connect:config"
       end
 
     end
