@@ -1,4 +1,4 @@
-# SeraphAuth
+# ToauthConnect
 
 Gem de autenticação OAuth com seraph.defensoria.to.gov.br
 
@@ -7,8 +7,10 @@ Gem de autenticação OAuth com seraph.defensoria.to.gov.br
 Add em Gemfile:
 
 ```ruby
+gem 'devise'
+gem 'oauth2'
 gem 'rest-client'
-gem 'seraph_auth'
+gem 'toauth_connect', :git => "git@git.seplan.to.gov.br:lucas/toauth_connect.git"
 ```
 
 Execute:
@@ -17,82 +19,32 @@ Execute:
 
 Ou manualmente:
 
-    $ gem install seraph_auth
+    $ gem install 'toauth_connect'
 
 ## Configurando
 
-configure as seguintes variáveis:
+Após instalar o Devise e colocar as colunas requiridas:
 
-	#Client Seraph
-	ENV['seraph_client'] = 'any client' 
+	$ rails g toauth_connect
 
-	#Secret Seraph
-    ENV['seraph_secret'] = 'any secret'
+###Arquivo de confiração
 
-	#tabela onde estão guardados os usuários
-    ENV['seraph_table'] = "User"
+	/config/initializers/toauth_connect.rb
 
-    #coluna onde está guardado o nome do usuário
-    ENV['seraph_column_name'] = "name"
+```ruby
 
-    #coluna onde está guardado o cpf do usuário
-    ENV['seraph_column_cpf'] = "cpf" 
-
-    #coluna onde está guardado o email do usuário
-    ENV['seraph_column_email'] = "email" 
-
-    #coluna onde está guardado o usuario do usuário
-    ENV['seraph_column_username'] = "username" 
-
-    #coluna onde está guardada a senha do usuário
-    ENV['seraph_column_password'] = "password"
-
-    #coluna onde está guardada o confirmação de senha do usuário
-    ENV['seraph_column_confirmation'] = "password_confirmation"
-
-## Exemplo com Devise
-
-### Redirecionando Usuário para Login
-
-em config/routes.rb
-
-	Rails.application.routes.draw do
-  		get "/users/sign_in" => "api_auth#redirect"
-
-		unauthenticated :user do
-		    devise_scope :user do
-		      get "/" => "api_auth#redirect"
-		    end
-		end
+	ToauthConnect.configuration do |config|
+	  config.client_id  = "client_id" #ID de Cliente gerado no Toauth
+	  config.client_secret  = "client_secret" #Chave secreta gerada no Toauth
+	  config.domain_default  = "domain_default" #Domnio padrão
+	  config.url_redirect_production  = "url_redirect_production" #URL de Redirecionamento em produção
+	  config.url_redirect_dev  = "http://localhost:3000/toauth" #Url de redirecionamento em desenvolvimento
+	  config.user_table  = "user_table" #Nome da tabela contendo o Usuário
+	  config.column_email  = "column_email" #Coluna da tabela contendo o email
+	  config.colum_token  = "colum_token" #Coluna da tabela contendo o token
+	  config.column_name  = "column_name" #Coluna da tabela contendo o nome
+	  config.column_cpf  = "column_cpf" #Coluna da tabela contendo o cpf
+	  config.column_password  = "column_password" #Coluna da tabela contendo o password
+	  config.column_password_confirmation  = "column_password_confirmation" #Coluna da tabela contendo a confirmação de password
 	end
-
-em controller:
-
-	def redirect
-		redirect_to SeraphAuth.auth_url
-	end
-
-### Callback
-
-em controller:
-	
-	def entrar
-		@user = SeraphAuth.login(params[:code])
-		if @user[:error]
-			flash[:alert] = @user[:error]
-			redirect_to your_url 
-		else
-			sign_in_and_redirect @user, :event => :authentication
-		end
-	end
-
-### Logout
-	
-em aplication_controller.rb
-
-	def after_sign_out_path_for(resource_or_scope)
-	    SeraphAuth.logout
-	end
-
-
-
+```
