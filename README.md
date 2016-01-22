@@ -23,7 +23,7 @@ Ou manualmente:
 
 ## Configurando
 
-Após instalar o Devise e colocar as colunas requiridas:
+Após instalar o Devise e colocar as colunas requeridas:
 
 	$ rails g toauth_connect
 
