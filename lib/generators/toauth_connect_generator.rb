@@ -12,4 +12,10 @@ class ToauthConnectGenerator < Rails::Generators::Base
   def copy_controller
     template "toauth_controller.rb", "app/controllers/toauth_controller.rb"
   end
+
+  def add_toauth_connect_routes    
+    route  "get '/users/sign_in' => 'toauth#redirect'"
+    route  "get 'toauth' => 'toauth#entrar'"
+    route  "get 'auth/redirect' => 'toauth#redirect'"    
+  end
 end
