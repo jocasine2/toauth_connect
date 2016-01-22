@@ -27,7 +27,7 @@ Após instalar o Devise e colocar as colunas requiridas:
 
 	$ rails g toauth_connect
 
-###Arquivo de confiração
+### Arquivo de Configuração
 
 	/config/initializers/toauth_connect.rb
 
@@ -41,10 +41,26 @@ Após instalar o Devise e colocar as colunas requiridas:
 	  config.url_redirect_dev  = "http://localhost:3000/toauth" #Url de redirecionamento em desenvolvimento
 	  config.user_table  = "user_table" #Nome da tabela contendo o Usuário
 	  config.column_email  = "column_email" #Coluna da tabela contendo o email
-	  config.colum_token  = "colum_token" #Coluna da tabela contendo o token
+	  config.column_token  = "colum_token" #Coluna da tabela contendo o token
 	  config.column_name  = "column_name" #Coluna da tabela contendo o nome
 	  config.column_cpf  = "column_cpf" #Coluna da tabela contendo o cpf
 	  config.column_password  = "column_password" #Coluna da tabela contendo o password
 	  config.column_password_confirmation  = "column_password_confirmation" #Coluna da tabela contendo a confirmação de password
 	end
+```
+
+## Recebendo dados do Toauth
+
+### Dados Rápidos
+
+
+```ruby
+	ToauthConnect.fastdata(User.last)
+```
+
+### Dados Completos
+
+
+```ruby
+	ToauthConnect.profile_data(User.last)
 ```
