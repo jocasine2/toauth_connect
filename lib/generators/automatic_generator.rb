@@ -1,6 +1,6 @@
 require 'rails/generators'
 module ToauthConnect
-  module Generators
+  #module Generators
     class AutomaticGenerator < Rails::Generators::Base
       def add_gens
         gem 'devise'
@@ -41,5 +41,5 @@ module ToauthConnect
         end
       end
     end
-  end
+  #end
 end
