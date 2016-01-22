@@ -21,7 +21,7 @@ module ToauthConnect
 			end
 
 			def add_user_methodrails
-				inject_into_class 'app/model/user.rb', "User", <<-'RUBY'
+				inject_into_class 'app/models/user.rb', "User", <<-'RUBY'
 				def toauth_fast
 					ToauthConnect.fastdata(self)
 				end
