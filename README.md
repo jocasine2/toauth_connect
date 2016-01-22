@@ -1,6 +1,6 @@
 # ToauthConnect
 
-Gem de autenticação OAuth com seraph.defensoria.to.gov.br
+Gem de autenticação OAuth com toauth.seplan.to.gov.br
 
 ## Instalação
 
