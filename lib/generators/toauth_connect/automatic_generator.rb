@@ -16,13 +16,14 @@ module ToauthConnect
         end
       end
       
+      def install_devise
+         generate "devise:install"
+      end
+      
       def create_user_table
         generate "scaffold", "user name cpf token"
       end
 
-      def install_devise
-         generate "devise:install"
-      end
 
       def install_devise
          generate "devise",  "user"
