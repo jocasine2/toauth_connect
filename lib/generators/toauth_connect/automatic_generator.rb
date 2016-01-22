@@ -19,6 +19,15 @@ module ToauthConnect
       def install_devise
          generate "devise:install"
       end
+
+      def generate_toauth_user
+        generate "toauth_connect:user"
+      end
+
+      def generate_toauth_connect
+        generate "toauth_connect:install"
+      end
+
     end
   end
 end
