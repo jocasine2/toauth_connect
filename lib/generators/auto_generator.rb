@@ -1,7 +1,7 @@
 require 'rails/generators'
 module ToauthConnect
-  #module Generators
-    class AutomaticGenerator < Rails::Generators::Base
+  module Generators
+    class AutoGenerator < Rails::Generators::Base
       def add_gens
         gem 'devise'
         gem 'oauth2'
@@ -41,5 +41,5 @@ module ToauthConnect
         end
       end
     end
-  #end
+  end
 end
