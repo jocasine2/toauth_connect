@@ -24,7 +24,7 @@ module ToauthConnect
 	def self.redirect_url
 		if Rails.env.production
 			url_redirect_production
-		else if Rails.env.staging
+		elsif Rails.env.staging
 			url_redirect_staging
 		else
 			url_redirect_dev
