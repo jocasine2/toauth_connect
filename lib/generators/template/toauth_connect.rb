@@ -4,6 +4,7 @@ ToauthConnect.configuration do |config|
   config.domain_default  = "domain_default" #Domnio padrão
   config.url_redirect_production  = "url_redirect_production" #URL de Redirecionamento em produção
   config.url_redirect_dev  = "http://localhost:3000/toauth" #Url de redirecionamento em desenvolvimento
+  config.url_redirect_staging  = "url_redirect_staging" #Url de redirecionamento em teste
   config.user_table  = "User" #Nome da tabela contendo o Usuário
   config.column_email  = "email" #Coluna da tabela contendo o email
   config.column_token  = "token" #Coluna da tabela contendo o token

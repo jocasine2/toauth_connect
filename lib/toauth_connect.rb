@@ -8,6 +8,7 @@ module ToauthConnect
 	define_setting :domain_default
 	define_setting :url_redirect_production
 	define_setting :url_redirect_dev
+	define_setting :url_redirect_staging
 	define_setting :user_table
 	define_setting :column_email
 	define_setting :column_token
@@ -21,8 +22,10 @@ module ToauthConnect
 	end
 
 	def self.redirect_url
-		if !Rails.env.development?
+		if Rails.env.production
 			url_redirect_production
+		else if Rails.env.staging
+			url_redirect_staging
 		else
 			url_redirect_dev
 		end
