@@ -18,7 +18,7 @@ module ToauthConnect
 	define_setting :column_password_confirmation
 
 	def self.url
-		"http://toauth.seplan.to.gov.br/"	
+		"http://toauth.ati.to.gov.br/"
 	end
 
 	def self.redirect_url
