@@ -10,7 +10,7 @@ Add em Gemfile:
 gem 'devise'
 gem 'oauth2'
 gem 'rest-client'
-gem 'toauth_connect', :git => "git@git.seplan.to.gov.br:lucas/toauth_connect.git"
+gem 'toauth_connect', :git => "http://git.ati.to.gov.br/gds/toauth_connect.git"
 ```
 
 Execute:
