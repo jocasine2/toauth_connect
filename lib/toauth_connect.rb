@@ -19,11 +19,11 @@ module ToauthConnect
 
 	def self.url
 		if Rails.env.production?
-			"http://toauth.ati.to.gov.br/"
+			"https://toauth.ati.to.gov.br/"
 		elsif Rails.env.staging?
-			"http://toauth-hom.ati.to.gov.br/"
+			"https://toauth-hom.ati.to.gov.br/"
 		else
-			"http://toauth-hom.ati.to.gov.br/"
+			"https://toauth-hom.ati.to.gov.br/"
 		end
 	end
 
