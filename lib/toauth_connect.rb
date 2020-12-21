@@ -18,13 +18,15 @@ module ToauthConnect
 	define_setting :column_password_confirmation
 
 	def self.url
-		if Rails.env.production?
+		#restabelecer apos https://toauth-hom.ati.to.gov.br/ voltar a ativa
+
+		# if Rails.env.production?
 			"https://toauth.ati.to.gov.br/"
-		elsif Rails.env.staging?
-			"https://toauth-hom.ati.to.gov.br/"
-		else
-			"https://toauth-hom.ati.to.gov.br/"
-		end
+		# elsif Rails.env.staging?
+		# 	"https://toauth-hom.ati.to.gov.br/"
+		# else
+		# 	"https://toauth-hom.ati.to.gov.br/"
+		# end
 	end
 
 	def self.redirect_url
